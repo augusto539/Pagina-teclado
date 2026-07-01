@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teclado Mac</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1 class="app__title">Teclado Mac</h1>
+        <p class="app__subtitle">
+          Apretá cualquier tecla en tu teclado físico y mirá dónde cae en el Mac.
+        </p>
+        <div id="toolbar" class="toolbar"></div>
+      </header>
+
+      <section id="keyboard" class="keyboard" aria-label="Teclado Mac"></section>
+
+      <section class="shortcuts">
+        <h2 class="shortcuts__title">Atajos más comunes</h2>
+        <div id="shortcuts" class="shortcuts__grid"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

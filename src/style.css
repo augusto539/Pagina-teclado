@@ -1,0 +1,303 @@
+/*
+ * Todos los colores viven como variables CSS para que el sistema de temas de v2
+ * sea solo cambiar el atributo `data-theme` en <html>.
+ */
+:root {
+  --u: 46px;      /* unidad: ancho de una tecla normal */
+  --gap: 6px;     /* separación entre teclas */
+  --key-h: 46px;  /* alto de la tecla */
+  --radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html[data-theme='dark'] {
+  --bg: #16181d;
+  --fg: #e7e9ee;
+  --muted: #8b90a0;
+  --key-bg: #2a2e39;
+  --key-fg: #e7e9ee;
+  --key-shadow: #14161b;
+  --key-active-bg: #4c8bf5;
+  --key-active-fg: #ffffff;
+  --panel-bg: #1c1f27;
+  --border: #2f333f;
+  --accent: #4c8bf5;
+}
+
+html[data-theme='light'] {
+  --bg: #f4f5f7;
+  --fg: #1c1e24;
+  --muted: #6b7180;
+  --key-bg: #ffffff;
+  --key-fg: #1c1e24;
+  --key-shadow: #d0d3da;
+  --key-active-bg: #2f6bff;
+  --key-active-fg: #ffffff;
+  --panel-bg: #e9ebef;
+  --border: #d7dae1;
+  --accent: #2f6bff;
+}
+
+html[data-theme='nord'] {
+  --bg: #2e3440;
+  --fg: #eceff4;
+  --muted: #8893a5;
+  --key-bg: #3b4252;
+  --key-fg: #eceff4;
+  --key-shadow: #272b35;
+  --key-active-bg: #88c0d0;
+  --key-active-fg: #2e3440;
+  --panel-bg: #343b49;
+  --border: #434c5e;
+  --accent: #88c0d0;
+}
+
+html[data-theme='dracula'] {
+  --bg: #282a36;
+  --fg: #f8f8f2;
+  --muted: #8a8ea8;
+  --key-bg: #383a4a;
+  --key-fg: #f8f8f2;
+  --key-shadow: #21222c;
+  --key-active-bg: #bd93f9;
+  --key-active-fg: #282a36;
+  --panel-bg: #343646;
+  --border: #44475a;
+  --accent: #ff79c6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.app {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.app__header {
+  text-align: center;
+}
+
+.app__title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+
+.app__subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.toolbar__group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Toggle Mac / Windows */
+.toolbar__group:first-child {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 2px;
+}
+
+.toolbar__toggle {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.toolbar__toggle:hover {
+  color: var(--fg);
+}
+
+.toolbar__toggle.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Swatches de temas */
+.toolbar__swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease, border-color 0.1s ease;
+}
+
+.toolbar__swatch[data-theme='dark'] { --sw-bg: #16181d; --sw-ac: #4c8bf5; }
+.toolbar__swatch[data-theme='light'] { --sw-bg: #f4f5f7; --sw-ac: #2f6bff; }
+.toolbar__swatch[data-theme='nord'] { --sw-bg: #2e3440; --sw-ac: #88c0d0; }
+.toolbar__swatch[data-theme='dracula'] { --sw-bg: #282a36; --sw-ac: #bd93f9; }
+
+.toolbar__swatch {
+  background: linear-gradient(135deg, var(--sw-bg) 0 50%, var(--sw-ac) 50% 100%);
+}
+
+.toolbar__swatch:hover {
+  transform: scale(1.12);
+}
+
+.toolbar__swatch.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+/* ---------- Teclado ---------- */
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: 16px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.keyboard__row {
+  display: flex;
+  gap: var(--gap);
+}
+
+.key {
+  height: var(--key-h);
+  min-width: var(--u);
+  background: var(--key-bg);
+  color: var(--key-fg);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 0 var(--key-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  font-size: 14px;
+  font-weight: 500;
+  user-select: none;
+  transition: transform 0.04s ease, background 0.04s ease, box-shadow 0.04s ease;
+}
+
+.key__sub {
+  font-size: 10px;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.key__label {
+  line-height: 1;
+}
+
+.key.active {
+  background: var(--key-active-bg);
+  color: var(--key-active-fg);
+  box-shadow: 0 0 0 var(--key-shadow);
+  transform: translateY(2px);
+}
+
+.key.active .key__sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Atajos ---------- */
+.shortcuts__title {
+  font-size: 18px;
+  margin: 0 0 16px;
+}
+
+.shortcuts__grid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.shortcuts__row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 12px;
+  padding: 12px 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.shortcuts__row:last-child {
+  border-bottom: none;
+}
+
+.shortcuts__row {
+  transition: background 0.08s ease, box-shadow 0.08s ease;
+}
+
+.shortcuts__row.active {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.shortcuts__row.active .shortcuts__action {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.shortcuts__row--head {
+  background: var(--panel-bg);
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.shortcuts__action {
+  color: var(--fg);
+}
+
+.shortcuts__keys {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.shortcuts__keys--mac {
+  color: var(--accent);
+  font-weight: 600;
+}
