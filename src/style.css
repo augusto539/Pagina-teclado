@@ -105,6 +105,37 @@ body {
   font-size: 15px;
 }
 
+/* ---------- Selector de idioma ---------- */
+.lang-switch {
+  display: inline-flex;
+  gap: 2px;
+  margin-bottom: 18px;
+  padding: 3px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.lang-switch__link {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.lang-switch__link:hover {
+  color: var(--fg);
+}
+
+.lang-switch__link.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
 /* ---------- Toolbar ---------- */
 .toolbar {
   margin-top: 20px;

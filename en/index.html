@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO — site domain: https://pagina-teclado.vercel.app -->
+    <title>Interactive Mac Keyboard — Shortcuts & Windows Key Equivalents</title>
+    <meta
+      name="description"
+      content="Which key is Command, Option or Control on a Windows keyboard? Press a key and see in real time where it lands on the Mac, plus the most-used Windows↔Mac shortcuts. Free."
+    />
+    <meta
+      name="keywords"
+      content="mac keyboard, windows keyboard on mac, command key on windows, mac shortcuts, mac windows key equivalents, option key, control key mac"
+    />
+    <link rel="canonical" href="https://pagina-teclado.vercel.app/en/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#16181d" />
+    <meta name="author" content="Augusto Antonelli" />
+
+    <!-- Language versions -->
+    <link rel="alternate" hreflang="es" href="https://pagina-teclado.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://pagina-teclado.vercel.app/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://pagina-teclado.vercel.app/" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mac Keyboard" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_AR" />
+    <meta property="og:title" content="Interactive Mac Keyboard — Shortcuts & Windows Key Equivalents" />
+    <meta
+      property="og:description"
+      content="Press a key on your Windows keyboard and see in real time what it is on the Mac. Includes the most-used Windows↔Mac shortcuts."
+    />
+    <meta property="og:url" content="https://pagina-teclado.vercel.app/en/" />
+    <meta property="og:image" content="https://pagina-teclado.vercel.app/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Interactive Mac Keyboard — Shortcuts & Windows Key Equivalents" />
+    <meta
+      name="twitter:description"
+      content="Press a key on your Windows keyboard and see in real time what it is on the Mac."
+    />
+    <meta name="twitter:image" content="https://pagina-teclado.vercel.app/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mac Keyboard",
+        "url": "https://pagina-teclado.vercel.app/en/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Interactive Mac keyboard visualizer that highlights each key as you press it on your physical keyboard, with the key and shortcut equivalents between Windows and Mac."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What key is Command (⌘) on a Windows keyboard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Windows key (⊞). When you connect a Windows keyboard to a Mac, the Windows key acts as Command (⌘): copy is Windows + C, paste is Windows + V, and save is Windows + S."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What key is Option (⌥) on a Windows keyboard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Alt key. On a Windows keyboard connected to a Mac, Alt works as Option (⌥)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Command the same as Control on a Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. On a Mac, Command (⌘) does what Ctrl does on Windows (copy, paste, save). Control (⌃) on a Mac is a separate key used for other shortcuts, such as switching the keyboard language."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I take a screenshot on a Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Shift + Command + 3 captures the whole screen, Shift + Command + 4 captures a selected area, and Shift + Command + 5 opens the tool with an option to record the screen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I switch the keyboard language on a Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Press Control + Space (⌃ + Space) to switch between the keyboard languages you have configured."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use a Windows keyboard on a Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, it works without installing anything. Only the modifier key names change: the Windows key becomes Command (⌘), Alt becomes Option (⌥), and Ctrl stays as Control (⌃)."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <nav class="lang-switch" aria-label="Idioma / Language">
+          <a href="/" class="lang-switch__link">ES</a>
+          <a href="/en/" class="lang-switch__link is-active">EN</a>
+        </nav>
+        <h1 class="app__title">Interactive Mac Keyboard</h1>
+        <p class="app__subtitle">
+          Press any key on your physical keyboard (even a Windows one) and see in
+          real time where it lands on the Mac. With the most-used Windows ↔ Mac
+          shortcuts.
+        </p>
+        <div id="toolbar" class="toolbar"></div>
+      </header>
+
+      <section id="keyboard" class="keyboard" aria-label="Interactive Mac keyboard"></section>
+
+      <p class="keyboard__hint">
+        Live highlighting works with a physical keyboard (on a computer). On a
+        phone you can still check the shortcuts and equivalents below 👇
+      </p>
+
+      <section class="shortcuts">
+        <h2 class="shortcuts__title">Most common shortcuts: Windows ↔ Mac</h2>
+        <div id="shortcuts" class="shortcuts__grid"></div>
+      </section>
+
+      <section class="faq">
+        <h2 class="faq__title">Frequently asked questions</h2>
+
+        <article class="faq__item">
+          <h3>What key is Command (⌘) on a Windows keyboard?</h3>
+          <p>
+            The <strong>Windows key (⊞)</strong>. When you connect a Windows
+            keyboard to a Mac, the Windows key acts as Command (⌘): copy is
+            <strong>Windows + C</strong>, paste is <strong>Windows + V</strong>,
+            and save is <strong>Windows + S</strong>.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>What key is Option (⌥) on a Windows keyboard?</h3>
+          <p>
+            The <strong>Alt key</strong>. On a Windows keyboard connected to a
+            Mac, Alt works as Option (⌥).
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>Is Command the same as Control on a Mac?</h3>
+          <p>
+            No. On a Mac, <strong>Command (⌘)</strong> does what Ctrl does on
+            Windows (copy, paste, save). <strong>Control (⌃)</strong> on a Mac is
+            a separate key used for other shortcuts, such as switching the
+            keyboard language.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>How do I take a screenshot on a Mac?</h3>
+          <p>
+            <strong>Shift + Command + 3</strong> captures the whole screen,
+            <strong>Shift + Command + 4</strong> captures a selected area, and
+            <strong>Shift + Command + 5</strong> opens the tool with an option to
+            record the screen.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>How do I switch the keyboard language on a Mac?</h3>
+          <p>
+            Press <strong>Control + Space (⌃ + Space)</strong> to switch between
+            the keyboard languages you have configured.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>Can I use a Windows keyboard on a Mac?</h3>
+          <p>
+            Yes, it works without installing anything. Only the modifier key
+            names change: the Windows key becomes Command (⌘), Alt becomes Option
+            (⌥), and Ctrl stays as Control (⌃).
+          </p>
+        </article>
+      </section>
+
+      <footer class="site-footer">
+        <p>
+          Mac Keyboard — visualize and learn the key and shortcut equivalents
+          between Windows and Mac.
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -13,6 +13,7 @@ const THEMES = [
 ];
 
 export function initToolbar(container, { onLayout } = {}) {
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
   const savedLayout = localStorage.getItem(LS_LAYOUT) ?? 'mac';
   const savedTheme = localStorage.getItem(LS_THEME) ?? 'dark';
 
@@ -56,7 +57,7 @@ export function initToolbar(container, { onLayout } = {}) {
     btn.className = 'toolbar__swatch';
     btn.dataset.theme = theme.id; // usa las variables del tema para colorearse
     btn.title = theme.name;
-    btn.setAttribute('aria-label', `Tema ${theme.name}`);
+    btn.setAttribute('aria-label', `${lang === 'en' ? 'Theme' : 'Tema'} ${theme.name}`);
     btn.addEventListener('click', () => setTheme(theme.id));
     themeButtons[theme.id] = btn;
     themeGroup.appendChild(btn);

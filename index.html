@@ -19,10 +19,16 @@
     <meta name="theme-color" content="#16181d" />
     <meta name="author" content="Augusto Antonelli" />
 
+    <!-- Versiones por idioma (le dice a Google que /en/ es la versión inglesa) -->
+    <link rel="alternate" hreflang="es" href="https://pagina-teclado.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://pagina-teclado.vercel.app/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://pagina-teclado.vercel.app/" />
+
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Teclado Mac" />
     <meta property="og:locale" content="es_AR" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:title" content="Teclado Mac interactivo — Atajos y equivalencias con Windows" />
     <meta
       property="og:description"
@@ -119,6 +125,10 @@
   <body>
     <main class="app">
       <header class="app__header">
+        <nav class="lang-switch" aria-label="Idioma / Language">
+          <a href="/" class="lang-switch__link is-active">ES</a>
+          <a href="/en/" class="lang-switch__link">EN</a>
+        </nav>
         <h1 class="app__title">Teclado Mac interactivo</h1>
         <p class="app__subtitle">
           Apretá cualquier tecla en tu teclado físico (aunque sea de Windows) y
