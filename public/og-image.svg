@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1200" height="630" fill="#16181d" />
+
+  <!-- Texto -->
+  <text x="80" y="230" font-size="76" font-weight="800" fill="#e7e9ee" letter-spacing="-2">Teclado Mac</text>
+  <text x="80" y="300" font-size="34" font-weight="500" fill="#8b90a0">Qué tecla es cuál — y los atajos Windows ↔ Mac</text>
+
+  <!-- Fila de teclas de muestra -->
+  <g>
+    <rect x="80"  y="380" width="110" height="110" rx="18" fill="#2a2e39" />
+    <text x="135" y="452" font-size="46" font-weight="700" fill="#8b90a0" text-anchor="middle">⌃</text>
+
+    <rect x="210" y="380" width="110" height="110" rx="18" fill="#2a2e39" />
+    <text x="265" y="452" font-size="46" font-weight="700" fill="#8b90a0" text-anchor="middle">⌥</text>
+
+    <!-- Command iluminada -->
+    <rect x="340" y="380" width="110" height="110" rx="18" fill="#4c8bf5" />
+    <text x="395" y="452" font-size="46" font-weight="700" fill="#ffffff" text-anchor="middle">⌘</text>
+
+    <rect x="470" y="380" width="360" height="110" rx="18" fill="#2a2e39" />
+    <text x="650" y="450" font-size="30" font-weight="600" fill="#8b90a0" text-anchor="middle">espacio</text>
+  </g>
+
+  <!-- Chip de marca -->
+  <rect x="80" y="540" width="230" height="44" rx="22" fill="#1c1f27" stroke="#2f333f" />
+  <circle cx="106" cy="562" r="8" fill="#4c8bf5" />
+  <text x="124" y="569" font-size="22" font-weight="600" fill="#e7e9ee">teclado-mac</text>
+</svg>

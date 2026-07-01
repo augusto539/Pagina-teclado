@@ -3,25 +3,205 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teclado Mac</title>
+
+    <!-- SEO — dominio del sitio: https://pagina-teclado.vercel.app -->
+    <title>Teclado Mac interactivo — Atajos y equivalencias con Windows</title>
+    <meta
+      name="description"
+      content="¿Qué tecla es Command, Option o Control en un teclado de Windows? Apretá una tecla y mirá en tiempo real dónde cae en el Mac, con los atajos Windows↔Mac más usados. Gratis."
+    />
+    <meta
+      name="keywords"
+      content="teclado mac, teclado windows en mac, tecla command en windows, atajos mac, equivalencia teclas mac windows, tecla option, tecla control mac"
+    />
+    <link rel="canonical" href="https://pagina-teclado.vercel.app/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#16181d" />
+    <meta name="author" content="Augusto Antonelli" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Teclado Mac" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="Teclado Mac interactivo — Atajos y equivalencias con Windows" />
+    <meta
+      property="og:description"
+      content="Apretá una tecla en tu teclado de Windows y mirá en tiempo real qué es en el Mac. Incluye los atajos Windows↔Mac más usados."
+    />
+    <meta property="og:url" content="https://pagina-teclado.vercel.app/" />
+    <meta property="og:image" content="https://pagina-teclado.vercel.app/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Teclado Mac interactivo — Atajos y equivalencias con Windows" />
+    <meta
+      name="twitter:description"
+      content="Apretá una tecla en tu teclado de Windows y mirá en tiempo real qué es en el Mac."
+    />
+    <meta name="twitter:image" content="https://pagina-teclado.vercel.app/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/src/style.css" />
+
+    <!-- Datos estructurados: le dicen a Google qué es esto y arman
+         los "rich results" de preguntas frecuentes. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Teclado Mac",
+        "url": "https://pagina-teclado.vercel.app/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Visualizador interactivo de teclado Mac que ilumina cada tecla al apretarla en tu teclado físico, con las equivalencias y atajos entre Windows y Mac."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué tecla es Command (⌘) en un teclado de Windows?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La tecla Windows (⊞). Al conectar un teclado de Windows a una Mac, la tecla Windows cumple la función de Command (⌘): copiar es Windows + C, pegar es Windows + V, guardar es Windows + S, y así."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tecla es Option (⌥) en un teclado de Windows?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La tecla Alt. En un teclado de Windows conectado a una Mac, Alt funciona como Option (⌥)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Command es lo mismo que Control en Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. En Mac, Command (⌘) hace lo que Ctrl hace en Windows (copiar, pegar, guardar). Control (⌃) en Mac es una tecla distinta que se usa para otros atajos, como cambiar el idioma del teclado."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo hago una captura de pantalla en Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Shift + Command + 3 captura toda la pantalla, Shift + Command + 4 captura una zona que elijas, y Shift + Command + 5 abre la herramienta con opción de grabar la pantalla."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo cambio el idioma del teclado en Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Con Control + Espacio (⌃ + Espacio) cambiás entre los idiomas de teclado que tengas configurados."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo usar un teclado de Windows en una Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, funciona sin instalar nada. Solo cambian los nombres de las teclas modificadoras: la tecla Windows pasa a ser Command (⌘), Alt pasa a ser Option (⌥) y Ctrl sigue siendo Control (⌃)."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <main class="app">
       <header class="app__header">
-        <h1 class="app__title">Teclado Mac</h1>
+        <h1 class="app__title">Teclado Mac interactivo</h1>
         <p class="app__subtitle">
-          Apretá cualquier tecla en tu teclado físico y mirá dónde cae en el Mac.
+          Apretá cualquier tecla en tu teclado físico (aunque sea de Windows) y
+          mirá en tiempo real dónde cae en el Mac. Con los atajos Windows ↔ Mac
+          más usados.
         </p>
         <div id="toolbar" class="toolbar"></div>
       </header>
 
-      <section id="keyboard" class="keyboard" aria-label="Teclado Mac"></section>
+      <section id="keyboard" class="keyboard" aria-label="Teclado Mac interactivo"></section>
 
       <section class="shortcuts">
-        <h2 class="shortcuts__title">Atajos más comunes</h2>
+        <h2 class="shortcuts__title">Atajos más comunes: Windows ↔ Mac</h2>
         <div id="shortcuts" class="shortcuts__grid"></div>
       </section>
+
+      <!-- Contenido crawleable para SEO: responde las preguntas que la
+           gente googlea al pasarse de Windows a Mac. -->
+      <section class="faq">
+        <h2 class="faq__title">Preguntas frecuentes</h2>
+
+        <article class="faq__item">
+          <h3>¿Qué tecla es Command (⌘) en un teclado de Windows?</h3>
+          <p>
+            La <strong>tecla Windows (⊞)</strong>. Al conectar un teclado de
+            Windows a una Mac, la tecla Windows cumple la función de Command
+            (⌘): copiar es <strong>Windows + C</strong>, pegar es
+            <strong>Windows + V</strong>, guardar es <strong>Windows + S</strong>.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>¿Qué tecla es Option (⌥) en un teclado de Windows?</h3>
+          <p>
+            La <strong>tecla Alt</strong>. En un teclado de Windows conectado a
+            una Mac, Alt funciona como Option (⌥).
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>¿Command es lo mismo que Control en Mac?</h3>
+          <p>
+            No. En Mac, <strong>Command (⌘)</strong> hace lo que Ctrl hace en
+            Windows (copiar, pegar, guardar). <strong>Control (⌃)</strong> en Mac
+            es una tecla distinta que se usa para otros atajos, como cambiar el
+            idioma del teclado.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>¿Cómo hago una captura de pantalla en Mac?</h3>
+          <p>
+            <strong>Shift + Command + 3</strong> captura toda la pantalla,
+            <strong>Shift + Command + 4</strong> captura una zona que elijas, y
+            <strong>Shift + Command + 5</strong> abre la herramienta con opción
+            de grabar la pantalla.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>¿Cómo cambio el idioma del teclado en Mac?</h3>
+          <p>
+            Con <strong>Control + Espacio (⌃ + Espacio)</strong> cambiás entre
+            los idiomas de teclado que tengas configurados.
+          </p>
+        </article>
+
+        <article class="faq__item">
+          <h3>¿Puedo usar un teclado de Windows en una Mac?</h3>
+          <p>
+            Sí, funciona sin instalar nada. Solo cambian los nombres de las
+            teclas modificadoras: la tecla Windows pasa a ser Command (⌘), Alt
+            pasa a ser Option (⌥) y Ctrl sigue siendo Control (⌃).
+          </p>
+        </article>
+      </section>
+
+      <footer class="site-footer">
+        <p>
+          Teclado Mac — visualizá y aprendé las equivalencias de teclas y atajos
+          entre Windows y Mac.
+        </p>
+      </footer>
     </main>
 
     <script type="module" src="/src/main.js"></script>
