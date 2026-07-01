@@ -344,3 +344,75 @@ body {
   padding-top: 16px;
   border-top: 1px solid var(--border);
 }
+
+/* ---------- Aviso para táctil ---------- */
+/* Se muestra solo en dispositivos sin teclado físico (touch), donde el
+   resaltado en vivo no aplica. */
+.keyboard__hint {
+  display: none;
+  margin: -20px auto 0;
+  max-width: 420px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .keyboard__hint {
+    display: block;
+  }
+}
+
+/* ---------- Responsive ---------- */
+/* Por debajo de ~860px el teclado a tamaño fijo se desborda, así que la unidad
+   `--u` pasa a ser fluida: escala con el ancho de la pantalla hasta un máximo
+   de 46px. Como el ancho de cada tecla se calcula con var(--u), todo el teclado
+   se achica en proporción y siempre entra sin scroll horizontal. */
+@media (max-width: 860px) {
+  :root {
+    --gap: 4px;
+    --u: min(46px, calc((100vw - 108px) / 15));
+    --key-h: calc(var(--u) * 1.1);
+    --radius: 6px;
+  }
+
+  .app {
+    padding: 24px 12px 56px;
+    gap: 28px;
+  }
+
+  .app__title {
+    font-size: 24px;
+  }
+
+  .app__subtitle {
+    font-size: 14px;
+  }
+
+  .keyboard {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  /* Solo el símbolo principal (⌘ ⌥ ⌃ …); ocultamos los sub-labels para que las
+     teclas chicas se vean limpias. */
+  .key {
+    font-size: clamp(7px, calc(var(--u) * 0.44), 15px);
+    font-weight: 600;
+  }
+
+  .key__sub {
+    display: none;
+  }
+
+  .shortcuts__row {
+    padding: 10px 12px;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .faq__item h3 {
+    font-size: 14px;
+  }
+}
